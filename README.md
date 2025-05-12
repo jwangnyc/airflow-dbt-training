@@ -58,3 +58,14 @@ airflow users create \
 airflow webserver --port 8080
 airflow scheduler
 ```
+
+# dbt commands
+
+```
+dbt debug
+dbt build --profiles-dir ./  
+dbt run --profiles-dir ./  
+dbt docs generate
+dbt docs serve --profiles-dir ./  
+
+```
