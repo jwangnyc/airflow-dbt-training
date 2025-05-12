@@ -1,4 +1,4 @@
-dbt_analytics:
+dbt_data_marts:
   outputs:
     dev:
       type: duckdb
