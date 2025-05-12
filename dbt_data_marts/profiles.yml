@@ -1,0 +1,15 @@
+dbt_analytics:
+  outputs:
+    dev:
+      type: duckdb
+      path: 'data/local.duckdb'
+      schema: abtest
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: 'data/local.duckdb'
+      schema: abtest
+      threads: 4
+
+  target: dev

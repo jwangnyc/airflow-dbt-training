@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: history
+    database: local
+    schema: history
+    tables:
+      - name: ab_test_dimension
+  - name: abtest
+    database: local
+    schema: abtest
+    tables:
+      - name: ab_test_dashboard
