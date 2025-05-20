@@ -32,7 +32,7 @@ git clone git@github.com:jwangnyc/airflow-dbt-training.git
 ```
 cd ~/work/airflow-dbt-training
 
-python311 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 pip install dbt-core==1.8
 pip install dbt-duckdb==1.9
