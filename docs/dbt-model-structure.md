@@ -1,7 +1,12 @@
-# How to write a dbt model
+# dbt Model Structure
 
-## Optional comments: 
+In [dbt Model Architecture](./dbt-model-architecture.md), we discussed how to organized models based on three layers.  This article talks about how to write a model, or how to organize a SQL file in a structured way.  
+
+## 1. Optional comments:
+
 File-level comments (e.g., author, date, purpose, Jira ticket)
+
+## 2. Optional Configuration:
 
 ```
 {{
@@ -15,7 +20,10 @@ File-level comments (e.g., author, date, purpose, Jira ticket)
 }}
 ```
 
-## Import sources: 
+"materialized" is usually defined at the project level for folders.  You can override the default seeting per model. 
+It is common to provide specific conficurations for building incremental models. 
+
+## 3. Import sources:
 
 Select from upstream sources or models. 
 
@@ -67,7 +75,8 @@ stg_products as (
 
 ```
 
-## Define local CTEs 
+## 4. Define local CTEs:
+
 Perform transformations, joins, and business logic by breaking down complex logic into smaller, understandable steps.
 
 The principal applied here is modulemodularity.  A big, messy SQL statement with many joins and filters is error prone and hard to read.  In adition, it may improve performance by avoiding large joins. 
@@ -124,7 +133,7 @@ aggregated_by_user as (
 )
 ```
 
-## Aseemble the model
+## 5. Aseemble the model
 A final SELECT Statement to assemble all logical CTEs.
 This should be a simple select of the columns you want in your final model.
 Avoid complex transformations here; they should be in the logical CTEs.
